@@ -99,6 +99,11 @@ CMD java -version
 === 2.6 Copy files in the Docker image
 
 . Explain `COPY` vs `ADD`
+-> COPY - Copy new files or directories to the container filesystem
+-> ADD - has all the features of COPY and also allows tar file autoextraction in the image
+            -eg: ADD app.tar.gz /opt/var/myapp
+        Can also download files from a remote url
+            -Recommanded to use curl or wget instead
 
 ```
 FROM jboss/wildfly
@@ -111,6 +116,10 @@ COPY webapp.war /opt/jboss/wildfly/standalone/deployments/webapp.war
 . Access application: `curl http://localhost:8080/webapp/resources/persons`
 
 === 2.7 Run JAR files from the Docker image
+
+-> RUN - used for installing software package
+        eg: RUN apt-get update && apt-get install -y git
+            RUN /opt/jboss/wildfly/bin/add-user.sh admin Admin#007 - silent
 
 ```
 FROM openjdk:jdk-alpine
