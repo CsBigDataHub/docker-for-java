@@ -23,6 +23,7 @@ services:
     ports:
       - 8080:8080
 ```
+-> in the above file /home/deployments is mapped to jboss deployments dir. so if you drop a war file in /home/deployments/ it will automatically deployed to jboss
 
 . Talk about how `deployments` directory is automatically created
 . Explain `web`, `image`, `volumes`, `ports`
@@ -31,7 +32,8 @@ services:
 Run the commands:
 
 ```
-docker-compose up -d
+docker-compose up -d   #to run services in detached mode
+docker-compose ps 
 docker-compose logs -f
 cp docker-for-java-master/chapter2/webapp.war ~/deployments
 curl http://localhost:8080/webapp/resources/persons
