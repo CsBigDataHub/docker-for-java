@@ -35,7 +35,7 @@ Access WildFly home page in browser on the exposed port
 ```
 docker container stop web
 docker container rm web
-docker container run -d --name web -p 8080:8080 jboss/wildfly
+docker container run -d --name web -p 8080:8080 jboss/wildfly #this command will map the ports
 docker container logs web
 ```
 
